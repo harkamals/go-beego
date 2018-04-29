@@ -13,7 +13,6 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
-.gitignore
 .idea/dataSources.local.xml
 .idea/dataSources/
 .idea/workspace.xml
@@ -25,7 +24,5 @@ Would skip repository pkg/dep/sources/https---github.com-astaxie-beego
 Would skip repository pkg/dep/sources/https---github.com-smartystreets-goconvey
 Would skip repository pkg/dep/sources/https---github.com-lib-pq
 src/.DS_Store
-src/portal/Gopkg.lock
-src/portal/Gopkg.toml
 src/portal/portal
-src/portal/vendor/
+
