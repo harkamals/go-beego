@@ -10,19 +10,15 @@ import (
 )
 
 type User struct {
-	Id      string
+	Id      int
 	Name    string
-	Address *Address
-}
-
-func (u *User) TableName() string {
-	return "custom_user"
+	//Address *Address
 }
 
 type Address struct {
 	Id      int
 	Country string
-	User    *User
+	//User    *User
 }
 
 type Product struct {
@@ -35,20 +31,19 @@ type Product struct {
 	LastOrdered  time.Time `orm:"auto_now_add;type(date)"`
 }
 
-func (p *Product) TableName() string {
-	return "Product"
-}
-
 func init() {
 	orm.RegisterDriver("postgres", orm.DRPostgres)
+
 	orm.RegisterDataBase("default",
 		"postgres",
 		"user=postgres password=postgres host=127.0.0.1 dbname=beego port=5432 sslmode=disable")
 
-	orm.RunSyncdb("default", false, true)
+	orm.RegisterModel(
+		new(User),
+		new(Product))
 
-	//orm.RegisterModel(new(User), new(Product))
-	fmt.Println("INIT completed")
+	orm.RunSyncdb("default", true, true)
+	fmt.Println("Init: ok")
 
 }
 
