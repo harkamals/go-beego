@@ -26,3 +26,4 @@ Would skip repository pkg/dep/sources/https---github.com-lib-pq
 src/.DS_Store
 src/portal/portal
 
+/pkg/
